@@ -35,4 +35,4 @@ mongo < catalogue.js >> /tmp/${component}.log
 mongo < users.js >> /tmp/${component}.log
 stat $?
 
-echo -n "\n\n--------------${component} configuration completed------------------\n"
+echo -n "\n-------------${component} configuration completed------------------\n"
