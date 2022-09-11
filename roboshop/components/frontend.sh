@@ -20,15 +20,15 @@ stat $?
 cd /usr/share/nginx/html
 rm -rf *
 
-echo -n "extracting zip file and save the file in /tmp/frontend.log:"
+echo "extracting zip file and save the file in /tmp/frontend.log:"
 unzip -o /tmp/frontend.zip >> /tmp/frontend.log
 mv frontend-main/* .
 mv static/* .
 
-echo -n "perforning cleanup"
+echo "perforning cleanup"
 rm -rf frontend-main README.md
 
-echo -n "configuring the reverse proxy"
+echo "configuring the reverse proxy"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 
 echo -n "restarting the nginx"
