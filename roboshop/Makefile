@@ -1,3 +1,3 @@
-frontend :
+frontend:
 	bash components/frontend.sh
 
