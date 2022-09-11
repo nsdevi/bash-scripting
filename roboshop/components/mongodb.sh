@@ -20,3 +20,19 @@ systemctl enable mongod >> /tmp/${component}.log
 echo -n "starting ${component} Service"
 systemctl start mongod
 stat $?
+
+echo -n "downloading the schema"
+curl -s -L -o /tmp/${component}.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
+stat $?
+
+echo -n "extracting the zip file"
+cd /tmp && unzip ${component}.zip
+stat $?
+
+echo -n "injecting the schema"
+cd ${component}-main
+mongo < catalogue.js >> /tmp/${component}.log
+mongo < users.js >> /tmp/${component}.log
+stat $?
+
+echo -n "\n\n--------------${component} configuration completed------------------\n"
