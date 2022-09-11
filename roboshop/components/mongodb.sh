@@ -9,7 +9,7 @@ echo -n "configuring ${component} repository"
 curl -s -o /etc/yum.repos.d/${component}.repo https://raw.githubusercontent.com/stans-robot-project/${component}/main/mongo.repo
 
 echo -n "installing ${component} Service"
-yum install -y ${component}-org
+yum install -y ${component}-org >> /tmp/${component}.log
 stat $?
 
 echo -n "Updating the $COMPONENT Config:"
