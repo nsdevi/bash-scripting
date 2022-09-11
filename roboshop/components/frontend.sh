@@ -4,7 +4,7 @@ set -e #ensure script will stop if any instruction fails
 source components/common.sh
 
 echo -n "installing nginx"
-yum install nginx -y
+yum install nginx -y  >> /tmp/frontend.log
 stat $?
 
 systemctl enable nginx
@@ -19,10 +19,18 @@ stat $?
 
 cd /usr/share/nginx/html
 rm -rf *
-unzip /tmp/frontend.zip
+
+echo -n "extracting zip file and save the file in /tmp/frontend.log:"
+unzip -o /tmp/frontend.zip >> /tmp/frontend.log
 mv frontend-main/* .
 mv static/* .
+
+echo -n "perforning cleanup"
 rm -rf frontend-main README.md
+
+echo -n "configuring the reverse proxy"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 
+echo -n "restarting the nginx"
 systemctl restart nginx
+stat $?
