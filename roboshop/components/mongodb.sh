@@ -26,7 +26,7 @@ curl -s -L -o /tmp/${component}.zip "https://github.com/stans-robot-project/mong
 stat $?
 
 echo -n "extracting the zip file"
-cd /tmp && unzip -o ${component}.zip
+cd /tmp && unzip -o ${component}.zip >> /tmp/${component}.log
 stat $?
 
 echo -n "injecting the schema"
