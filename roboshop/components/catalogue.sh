@@ -22,6 +22,10 @@ echo -n "Downloading component"
 curl -s -L -o /tmp/${component}.zip "https://github.com/stans-robot-project/${component}/archive/main.zip" >> /tmp/${component}.log
 stat $?
 
+echo -n "Cleanup of Old ${COMPONENT} content:"
+rm -rf /home/${FUSER}/${COMPONENT}  >> /tmp/${COMPONENT}.log 
+stat $?
+
 echo -n "extracting component"
 cd /home/${FUSER}
 stat $?
