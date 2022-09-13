@@ -24,7 +24,7 @@ stat $?
 
 echo -n "extracting component"
 cd /home/${FUSER}
-unzip /tmp/${component}.zip
+unzip -o /tmp/${component}.zip
 mv ${component}-main ${component}
 cd /home/$FUSER/${component}
 stat $?
@@ -32,3 +32,4 @@ stat $?
 echo -n "installing dependencies"
 npm install
 stat $?
+
