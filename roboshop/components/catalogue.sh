@@ -24,8 +24,11 @@ stat $?
 
 echo -n "extracting component"
 cd /home/${FUSER}
+stat $?
 unzip -o /tmp/${component}.zip
+stat $?
 mv ${component}-main ${component}
+stat $?
 cd /home/$FUSER/${component}
 stat $?
 
