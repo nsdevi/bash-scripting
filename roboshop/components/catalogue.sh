@@ -21,3 +21,14 @@ stat $?
 echo -n "Downloading component"
 curl -s -L -o /tmp/${component}.zip "https://github.com/stans-robot-project/${component}/archive/main.zip" >> /tmp/${component}.log
 stat $?
+
+echo -n "extracting component"
+cd /home/${FUSER}
+unzip /tmp/${component}.zip
+mv ${component}-main ${component}
+cd /home/$FUSER/${component}
+stat $?
+
+echo -n "installing dependencies"
+npm install
+stat $?
