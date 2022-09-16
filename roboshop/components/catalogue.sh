@@ -4,7 +4,7 @@ set -e
 
 source components/common.sh
 
-COMPONENT=catalogue\
+COMPONENT=catalogue
 FUSER=roboshop 
 LOGFILE=/tmp/robot.log 
 
