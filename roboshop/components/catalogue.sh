@@ -27,16 +27,19 @@ rm -rf /home/${FUSER}/${COMPONENT}  >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "extracting component"
-cd /home/${FUSER}
+cd /home/${FUSER}/ >>/tmp/${component}.zip
 stat $?
 unzip -o /tmp/${component}.zip
 stat $?
 mv ${component}-main ${component}
 stat $?
-cd /home/$FUSER/${component}
+echo -n "Changing the ownership to ${FUSER}:"
+chown -R $FUSER:$FUSER $COMPONENT/
 stat $?
 
 echo -n "installing dependencies"
+cd $COMPONENT && npm install &>> /tmp/${COMPONENT}.log 
+stat $? 
 npm install
 stat $?
 
