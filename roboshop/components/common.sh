@@ -14,3 +14,9 @@ stat() {
         echo -e "\e[31m failed, please check the logs \e[0m"
     fi
 }
+
+User_setup() {
+    echo -n "Adding $FUSER user:"
+    id ${FUSER} &>> LOGFILE  || useradd ${FUSER}   # Creates users only in case if the user account doen's exist
+    stat $? 
+}

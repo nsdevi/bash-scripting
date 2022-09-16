@@ -15,5 +15,5 @@ yum install nodejs -y >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "Adding $FUSER user:"
-id ${FUSER} &>> LOGFILE  || useradd ${FUSER}   # Creates users only in case if the user account doen's exist
+id ${FUSER}  || useradd ${FUSER}   # Creates users only in case if the user account doen's exist
 stat $? 
