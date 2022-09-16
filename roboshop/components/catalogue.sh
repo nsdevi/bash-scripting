@@ -4,7 +4,9 @@ set -e
 
 source components/common.sh
 
-COMPONENT=catalogue
+COMPONENT=catalogue\
+FUSER=roboshop 
+LOGFILE=/tmp/robot.log 
 
 echo -n "Configure Yum Remos for nodejs:"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash >> /tmp/${COMPONENT}.log 
