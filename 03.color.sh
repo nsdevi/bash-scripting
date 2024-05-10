@@ -7,4 +7,4 @@
 
 echo -e "\e[33m DevOps has a very great future \e[0m"
 echo -e "\e[44;37m DevOps has a very great future \e[0m"
-## 44 in above line background color of the Text
+## 44 in above line indicates background color of the Text
