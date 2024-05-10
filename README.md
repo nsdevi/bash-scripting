@@ -1,7 +1,7 @@
 # bash-scripting
 
 
-### Below are the mostly used Git commands
+## Below are the mostly used Git commands
 
 1. git clone reponame : downloads the whole repository
 2. git pull           : download only the changes
