@@ -2,8 +2,8 @@
 
 a=10
 b=Hello
-Date_command=${date+%F}
-echo today's date is $Date_command
+#Date_command=${date+ %F}
+echo today's date is ${date+ %F}
 echo value of a is :$a
 echo ${a}
 echo "${b}"
