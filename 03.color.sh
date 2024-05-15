@@ -5,6 +5,14 @@
 # Syntax is 
 # echo -e "\e[32m TextOfYourChoice  \e[0m"
 
-echo -e "\e[33m DevOps has a very great future \e[0m"
+echo -e "\e[33m DevOps has a very great future and it has highly scope in market we need to learn below tehnologies:
+Bashscripting
+Ansible
+jenkins
+Terraform
+kubernetes
+Docker
+Sonarqube
+Git \e[0m"
 echo -e "\e[44;37m DevOps has a very great future \e[0m"
 ## 44 in above line indicates background color of the Text
