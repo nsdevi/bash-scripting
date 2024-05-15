@@ -3,7 +3,7 @@
 a=10
 b=Hello
 
-echo today's date is ${date+%F}
+echo today's date is ${${date+%F}}
 echo value of a is :$a
 echo ${a}
 echo "${b}"
