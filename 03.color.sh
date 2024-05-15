@@ -15,4 +15,7 @@ Docker
 Sonarqube
 Git \e[0m"
 echo -e "\e[44;37m DevOps has a very great future \e[0m"
+
+echo Hi
+
 ## 44 in above line indicates background color of the Text
