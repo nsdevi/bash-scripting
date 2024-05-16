@@ -2,10 +2,10 @@
 
 # #  $0 --- It gives the name of the script you're running
 # #  $1 to $9---- you can pass maximum of 9 variables from the cmd line when running the script
-# #  $@
-# #  $*
-# #  $#
-# #  $$
+# #  $@  --- prints you all the supplied variables in the script
+# #  $*  --- prints you all the supplied variables in the script
+# #  $#  --- Prints the no of variables
+# #  $$ ---- prints the Process ID of the script that you're running
 echo "The script you're running is $0"
 
 a=10
