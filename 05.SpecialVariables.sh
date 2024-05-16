@@ -9,7 +9,8 @@
 echo "The script you're running is $0"
 
 a=10
-
+b=$1
+C=$2
 echo The Value of a is :$a
 echo The value of b is :$b
 echo The value of C is :$C
