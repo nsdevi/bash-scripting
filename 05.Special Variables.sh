@@ -6,7 +6,7 @@
 # #  $*
 # #  $#
 # #  $$
-echo The script you're running is $0
+echo "The script you're running is $0"
 
 a=10
 
