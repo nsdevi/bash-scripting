@@ -15,8 +15,9 @@ echo The Value of a is :$a
 echo The value of b is :$b
 echo The value of C is :$C
 
-echo $?
+echo $#
 echo $$
 echo $@
 echo $*
+
 
