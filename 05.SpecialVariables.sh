@@ -9,9 +9,14 @@
 echo "The script you're running is $0"
 
 a=10
-b=$1
-C=$2
+b=$1 # $1 first argument passed to the script
+C=$2 # $2 second argument passed to the script
 echo The Value of a is :$a
 echo The value of b is :$b
 echo The value of C is :$C
+
+echo $?
+echo $$
+echo $@
+echo $*
 
