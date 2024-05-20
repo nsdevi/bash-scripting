@@ -26,6 +26,6 @@ case $action in
         ;;
     *)
         echo -e "\e[36m Invalid Option \e[0m]"
-        ;;;
+        ;;
 
 esac
