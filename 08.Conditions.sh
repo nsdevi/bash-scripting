@@ -25,7 +25,7 @@ case $action in
         echo restarting the service
         ;;
     *)
-        echo -e "\e[36m Invalid Option \e[0m]"
+        echo -e "\e[36m Invalid Option \e[0m"
         ;;
 
 esac
