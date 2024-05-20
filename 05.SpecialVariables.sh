@@ -6,6 +6,7 @@
 # #  $*  --- prints you all the supplied variables in the script
 # #  $#  --- Prints the no of variables
 # #  $$ ---- prints the Process ID of the script that you're running
+# #  $? ---- displays the exit code of the previous command
 echo "The script you're running is $0"
 
 a=10
