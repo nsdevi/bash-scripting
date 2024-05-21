@@ -19,13 +19,22 @@
 
 
 #Demo of ifelse
-action=$1
-if [ $action = start -o $action = START ] ; then
-    echo "Starting the service"
-elif [ $action = stop ] ; then
-    echo "stop the service"
-elif [ $action = restart ]; then
-    echo "Restarting the service"
-else   
-    echo -e "\e[31m Invalid Option \e[0m"
+# action=$1
+# if [ $action = start -o $action = START ] ; then
+# ## -o stands for or
+#     echo "Starting the service"
+# elif [ $action = stop ] ; then
+#     echo "stop the service"
+# elif [ $action = restart ]; then
+#     echo "Restarting the service"
+# else   
+#     echo -e "\e[31m Invalid Option \e[0m"
+# fi
+
+
+
+ACTION=$1
+if [ -z $ACTION ] ; then
+    echo "Argument is required either start or stop"
+    exit 1
 fi
