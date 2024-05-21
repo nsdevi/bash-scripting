@@ -6,3 +6,11 @@ if [ $a -ge 18 ]; then
 else
     echo "You are not eligible to cast a vote"
 fi
+
+
+action=$2
+if [ $action = start ]; then
+    echo Selected option is start
+else
+    echo Invalid Option
+fi
