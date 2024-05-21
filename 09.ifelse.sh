@@ -9,7 +9,7 @@ fi
 
 
 action=$2
-if [ $action = start ] ; then
+if [ "$action" = "start" ] ; then
     echo Selected option is start
 else
     echo Invalid Option
