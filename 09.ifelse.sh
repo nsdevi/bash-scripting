@@ -20,7 +20,7 @@
 
 #Demo of ifelse
 action=$1
-if [ $action = start ]; then
+if [ $action = start ] ; then
     echo "Starting the service"
 elif [$action = stop]; then
     echo "stop the service"
