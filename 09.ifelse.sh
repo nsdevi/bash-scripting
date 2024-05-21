@@ -28,3 +28,4 @@ elif [$action = restart]; then
     echo "Restarting the service"
 else   
     echo -e "\e[31m Invalid Option \e[0m"
+fi
