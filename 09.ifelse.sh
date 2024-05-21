@@ -32,7 +32,10 @@
 # fi
 
 
+# [ -z "$var" ] -> This is true if var is not having any data
+#     [ -n "$var" ] _> This is true if var is having any data
 
+    # -z and -n are inverse proportional options
 ACTION=$1
 if [ -z $ACTION ] ; then
     echo "Argument is required either start or stop"
