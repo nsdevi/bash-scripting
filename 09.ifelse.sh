@@ -22,7 +22,7 @@
 action=$1
 if [ $action = start ] ; then
     echo "Starting the service"
-elif [$action = stop]; then
+elif [$action = stop] ; then
     echo "stop the service"
 elif [$action = restart]; then
     echo "Restarting the service"
