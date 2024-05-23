@@ -25,3 +25,8 @@ mv frontend-main/* .
 mv static/* .
 rm -rf frontend-main README.mdk
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
+
+echo -n "restarting the Nginx:"
+systemctl restart nginx
+stat $?
+
