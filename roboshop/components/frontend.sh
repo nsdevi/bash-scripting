@@ -1,6 +1,6 @@
 #!/bin/bash
 ## source is the command to import the file
-source common.sh
+source components/common.sh
 
 echo "Installing Nginx"
 yum install nginx -y
