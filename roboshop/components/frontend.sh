@@ -17,7 +17,6 @@ echo -n "Downloading the code:"
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
 stat $?
 
-
 cd /usr/share/nginx/html
 rm -rf *
 unzip /tmp/frontend.zip  >> /tmp/frontend.log
