@@ -3,7 +3,7 @@
 ID=$(id -u)
 if [ $ID -ne 0 ] ; then
     echo "Try to execute with sudo or root user"
-    exit 1
+    exit 10
 fi
 
 echo "Installing Nginx"
