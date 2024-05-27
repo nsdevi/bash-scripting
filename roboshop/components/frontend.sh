@@ -30,7 +30,7 @@ echo -n "Performing Cleanup"
 rm -rf frontend-main README.mdk
 stat $?
 
-echo "Configuring reverse Proxy"
+echo -n "Configuring reverse Proxy"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
 
