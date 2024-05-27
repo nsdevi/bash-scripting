@@ -16,7 +16,7 @@ systemctl start mongod >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "COnfiguring ${COMPONENT} file"
-sed -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 stat $?
 
 echo -n "restarting $COMPONENT Service"
