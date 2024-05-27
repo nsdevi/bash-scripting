@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e #it ensure that script will stop if any instruction fails
+
 ## source is the command to import the file
 source components/common.sh
 
@@ -19,11 +20,19 @@ stat $?
 
 cd /usr/share/nginx/html
 rm -rf *
+echo -n "Extracting the Zip file"
 unzip /tmp/frontend.zip  >> /tmp/frontend.log
+stat $?
+
 mv frontend-main/* .
 mv static/* .
+echo -n "Performing Cleanup"
 rm -rf frontend-main README.mdk
+stat $?
+
+echo "Configuring reverse Proxy"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
+stat $?
 
 echo -n "restarting the Nginx:"
 systemctl restart nginx
