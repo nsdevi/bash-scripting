@@ -1,7 +1,7 @@
 frontend:
 	bash components/frontend.sh
 
-Mongodb:
+mongodb:
 	bash components/mongodb.sh
 
 catalogue:

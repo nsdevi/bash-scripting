@@ -22,3 +22,11 @@ stat $?
 echo -n "restarting $COMPONENT Service"
 systemctl restart mongod >> /tmp/${COMPONENT}.log
 stat $?
+
+echo -n "Downloading the $COMPONENT schema"
+curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
+stat $?
+
+echo -n "Extracting the Zip folder"
+cd /tmp && unzip ${COMPONENT}.zip && cd $COMPONENT-main
+stat $?
