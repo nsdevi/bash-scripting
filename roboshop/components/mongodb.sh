@@ -30,3 +30,7 @@ stat $?
 echo -n "Extracting the $COMPONENT schema"
 cd /tmp && unzip ${COMPONENT}.zip && cd $COMPONENT-main
 stat $?
+
+echo -n "Injecting the $COMPONENT schema"
+mongo < catalogue.js && mongo < users.js
+stat $?
