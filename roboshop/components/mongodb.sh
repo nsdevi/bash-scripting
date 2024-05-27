@@ -7,7 +7,7 @@ curl -s -o /etc/yum.repos.d/${COMPONENT}.repo https://raw.githubusercontent.com/
 stat $?
 
 echo -n "Installing $COMPONENT Service"
-yum install -y ${COMPONENT}-org
+yum install -y ${COMPONENT}-org >> /tmp/${COMPONENT}.log
 stat $?
 
 echo -n "Starting $COMPONENT Service"
@@ -15,8 +15,8 @@ systemctl enable mongod >> /tmp/${COMPONENT}.log
 systemctl start mongod >> /tmp/${COMPONENT}.log
 stat $?
 
-echo -n "COnfiguring ${COMPONENT} file"
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
+echo -n "Configuring ${COMPONENT} file"
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf # it replaces 127.0.0.1 with 0.0.0.0 in /etc/mongof.conf file
 stat $?
 
 echo -n "restarting $COMPONENT Service"
