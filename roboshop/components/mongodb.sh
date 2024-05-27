@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e 
-source common.sh
+source components/common.sh
 COMPONENT=mongodb
 echo -n "downloading ${COMPONENT} repo"
 curl -s -o /etc/yum.repos.d/${COMPONENT}.repo https://raw.githubusercontent.com/stans-robot-project/${COMPONENT}/main/mongo.repo
