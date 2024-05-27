@@ -37,4 +37,4 @@ mongo < catalogue.js >> /tmp/${COMPONENT}.log
 mongo < users.js >> /tmp/${COMPONENT}.log
 stat $?
 
-echo -n -e "\n\n***********MongoDB configuration Completed***************\n"
+echo -n -e "\e[32m \n\n***********MongoDB configuration Completed***************\n \e[0m]"
