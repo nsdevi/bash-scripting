@@ -28,9 +28,11 @@ curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPO
 stat $?
 
 echo -n "Extracting the $COMPONENT schema"
-cd /tmp && unzip ${COMPONENT}.zip && cd $COMPONENT-main
+cd /tmp && unzip -o ${COMPONENT}.zip ## "-o indicates it overrides the file"
 stat $?
 
 echo -n "Injecting the $COMPONENT schema"
-mongo < catalogue.js && mongo < users.js
+cd $COMPONENT-main
+mongo < catalogue.js >> /tmp/${COMPONENT}.log
+mongo < users.js >> /tmp/${COMPONENT}.log
 stat $?
