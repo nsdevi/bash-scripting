@@ -36,3 +36,5 @@ cd $COMPONENT-main
 mongo < catalogue.js >> /tmp/${COMPONENT}.log
 mongo < users.js >> /tmp/${COMPONENT}.log
 stat $?
+
+echo -n "/n/n***********MongoDB configuration Completed***************/n"
