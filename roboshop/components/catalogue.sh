@@ -32,11 +32,21 @@ unzip -o /tmp/${COMPONENT}.zip >> /tmp/$COMPONENT.log ## "-o indicates it overri
 mv ${COMPONENT}-main ${COMPONENT}
 stat $?
 
-echo -n "Changing $COMPONENT file permissions"
-chown -R $FUSER:$FUSER $COMPONENT
+echo -n "Changing the ownership to $FUSER"
+chown -R $FUSER:$FUSER $COMPONENT/
 stat $?
 
 echo -n "Installing $COMPONENT dependecies"
 cd $COMPONENT
-npm install >> /tmp/$COMPONENT.log
+npm install &>> /tmp/$COMPONENT.log
 stat $?
+
+echo -n "COnfiguring systemd file"
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${FUSER}/${COMPONENT}/systemd.service
+mv /home/${FUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
+stat $?
+
+echo -n "Starting the service"
+systemctl daemon-reload &>> /tmp/$COMPONENT.log
+systemctl enable ${COMPONENT} &>> /tmp/$COMPONENT.log
+systemctl start ${COMPONENT} &>> /tmp/$COMPONENT.log
