@@ -6,6 +6,3 @@ mongodb:
 
 catalogue:
 	bash components/catalogue.sh
-
-cart:
-	bash components/cart.sh
