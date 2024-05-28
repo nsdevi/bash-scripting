@@ -20,8 +20,8 @@ echo -n "Downloading $COMPONENT"
 curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
 stat $?
 
-echo -n "Extracting the $COMPONENT schema"
-cd /home/roboshop && unzip -o /tmp/${COMPONENT}.zip ## "-o indicates it overrides the file"
-stat $?
+# echo -n "Extracting the $COMPONENT schema"
+# cd /home/roboshop && unzip -o /tmp/${COMPONENT}.zip ## "-o indicates it overrides the file"
+# stat $?
 
 
