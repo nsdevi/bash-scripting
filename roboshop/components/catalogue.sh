@@ -14,11 +14,9 @@ yum install nodejs -y >> /tmp/$COMPONENT.log
 stat $?
 
 echo -n "$FUSER User Creation"
-# id ${FUSER} useradd ${FUSER}
-# stat $?
-if [ $ID -ne 0 ] ; then
-useradd ${FUSER}
-fi
+id ${FUSER} || useradd ${FUSER}
+stat $?
+
 
 echo -n "Downloading $COMPONENT"
 curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip" >> /tmp/$COMPONENT.log
