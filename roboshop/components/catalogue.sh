@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-source /components/catalogue.sh
+source components/catalogue.sh
 COMPONENT=catalogue
 FUSER=roboshop
 
