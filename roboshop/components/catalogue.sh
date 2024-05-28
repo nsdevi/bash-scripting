@@ -5,11 +5,11 @@ COMPONENT=catalogue
 
 
 echo -n "Downloading yum repos for Nodejs"
-curl -sL https://rpm.nodesource.com/setup_16.x | bash
+yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y >> /tmp/$COMPONENT.log
 stat $?
 
 echo -n "Installing NodeJS"
-yum install nodejs -y
+yum install nodejs -y >> /tmp/$COMPONENT.log
 stat $?
 
 echo -n "roboshop User Creation"
@@ -26,12 +26,12 @@ stat $?
 
 echo -n "Extracting the $COMPONENT schema"
 cd /home/roboshop
-unzip -o /tmp/${COMPONENT}.zip ## "-o indicates it overrides the file"
+unzip -o /tmp/${COMPONENT}.zip >> /tmp/$COMPONENT.log ## "-o indicates it overrides the file"
 mv ${COMPONENT}-main ${COMPONENT}
 stat $?
 
 echo -n "Installing $COMPONENT dependecies"
-npm install
+npm install >> /tmp/$COMPONENT.log
 stat $?
 
 
