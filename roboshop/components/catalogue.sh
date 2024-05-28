@@ -14,7 +14,7 @@ yum install nodejs -y >> /tmp/$COMPONENT.log
 stat $?
 
 echo -n "$FUSER User Creation"
-id ${FUSER} || useradd ${FUSER}
+id ${FUSER} || useradd ${FUSER} # it creates the user only if user doesn;t exist
 stat $?
 
 
@@ -32,6 +32,11 @@ unzip -o /tmp/${COMPONENT}.zip >> /tmp/$COMPONENT.log ## "-o indicates it overri
 mv ${COMPONENT}-main ${COMPONENT}
 stat $?
 
+echo -n "Changing $COMPONENT file permissions"
+chown -R $FUSER:$FUSER $COMPONENT
+stat $?
+
 echo -n "Installing $COMPONENT dependecies"
+cd $COMPONENT
 npm install >> /tmp/$COMPONENT.log
 stat $?
