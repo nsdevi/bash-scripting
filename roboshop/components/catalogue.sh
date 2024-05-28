@@ -13,7 +13,7 @@ echo -n "Installing NodeJS"
 yum install nodejs -y >> /tmp/$COMPONENT.log
 stat $?
 
-# echo -n "$FUSER User Creation"
+echo -n "$FUSER User Creation"
 # id ${FUSER} useradd ${FUSER}
 # stat $?
 if [ $ID -ne 0 ] ; then
