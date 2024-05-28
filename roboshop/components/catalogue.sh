@@ -5,7 +5,7 @@ COMPONENT=catalogue
 FUSER=roboshop
 
 echo -n "Downloading yum repos for Nodejs"
-yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
+curl -sL https://rpm.nodesource.com/setup_16.x | bash
 stat $?
 
 echo -n "Installing NodeJS"
