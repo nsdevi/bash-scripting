@@ -3,6 +3,7 @@ set -e
 source components/common.sh
 COMPONENT=catalogue
 FUSER=roboshop
+ID=(id $FUSER)
 
 echo -n "Downloading yum repos for Nodejs"
 yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y >> /tmp/$COMPONENT.log
@@ -15,8 +16,9 @@ stat $?
 # echo -n "$FUSER User Creation"
 # id ${FUSER} useradd ${FUSER}
 # stat $?
-if [ id ${FUSER} -ne 0 ] ; then
+if [ $ID -ne 0 ] ; then
 useradd ${FUSER}
+fi
 
 echo -n "Downloading $COMPONENT"
 curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip" >> /tmp/$COMPONENT.log
