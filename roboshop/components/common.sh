@@ -54,6 +54,7 @@ echo -n "Starting the service"
 systemctl daemon-reload &>> /tmp/$COMPONENT.log
 systemctl enable ${COMPONENT} &>> /tmp/$COMPONENT.log
 systemctl start ${COMPONENT} &>> /tmp/$COMPONENT.log
+stat $?
 }
 
 NODEJS() {
