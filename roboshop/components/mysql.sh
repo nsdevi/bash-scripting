@@ -8,7 +8,7 @@ curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/stan
 stat $?
 
 echo -n "Installing $COMPONENT"
-yum install mysql-community-server -y
+yum install mysql-community-server -y >> /tmp/$COMPONENT
 stat $?
 
 echo -n "Starting $COMPONENT"
@@ -21,14 +21,14 @@ DEFAULT_ROOT_PASSOWRD=$(sudo grep temp /var/log/mysqld.log | head -n 1 | awk -F 
 stat $?
 
 #it execute only if exit code is non zero
-echo 'show databases;' | mysql -uroot -pRoboShop@1
+echo 'show databases;' | mysql -uroot -pRoboShop@1 >> /tmp/$COMPONENT
 if [ $? -ne 0 ]; then
 echo -n "reset the root default password"
 echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p"${DEFAULT_ROOT_PASSOWRD}"
 stat $?
 fi
 
-echo 'show plugins;' | mysql -uroot -pRoboShop@1 | grep validate_password
+echo 'show plugins;' | mysql -uroot -pRoboShop@1 | grep validate_password >> /tmp/$COMPONENT
 if [ $? -eq 0 ]; then
 echo -n "uninstall the password validate plugin"
 echo "uninstall plugin validate_password;" | mysql -uroot -pRoboShop@1 &>> /tmp/pluginvalidate
