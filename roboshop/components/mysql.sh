@@ -16,10 +16,16 @@ systemctl enable mysqld
 systemctl start mysqld
 stat $?
 
-echo -n "Fetching the password"
+echo -n "Fetching the default root password"
 DEFAULT_ROOT_PASSOWRD=$(sudo grep temp /var/log/mysqld.log | head -n 1 | awk -F " " '{print $NF}')
 stat $?
 
+#echo show databases;
 echo -n "changing the default password"
-echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_ROOT_PASSOWRD}
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p"${DEFAULT_ROOT_PASSOWRD}"
 stat $?
+
+echo -n "uninstall the password validate plugun"
+echo "uninstall plugin validate_password;" | mysql -uroot -pRoboShop@1
+stat $?
+
