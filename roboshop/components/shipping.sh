@@ -5,7 +5,7 @@ set -e
 COMPONENT=shipping
 
 echo -n "Installing Maven"
-dnf install maven -y
+yum install maven -y
 stat $?
 
 #Calling User creation function
