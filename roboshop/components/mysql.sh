@@ -28,11 +28,20 @@ echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --conne
 stat $?
 fi
 
-echo 'show plugins;' | mysql -uroot -pRoboShop@1 &>> /tmp/$COMPONENT.log | grep validate_password >> /tmp/$COMPONENT.log
+echo 'show plugins;' | mysql -uroot -pRoboShop@1 &>> /tmp/$COMPONENT.log | grep validate_password
 if [ $? -eq 0 ]; then
 echo -n "uninstall the password validate plugin"
 echo "uninstall plugin validate_password;" | mysql -uroot -pRoboShop@1 &>> /tmp/pluginvalidate
 stat $?
 fi
 
+echo -n "Downloading the schema"
+curl -s -L -o /tmp/mysql.zip "https://github.com/stans-robot-project/mysql/archive/main.zip"  &>> /tmp/$COMPONENT.log
+stat $?
 
+echo -n "Load schema"
+cd /tmp
+unzip mysql.zip
+cd mysql-main
+mysql -u root -pRoboShop@1 <shipping.sql
+stat $?
