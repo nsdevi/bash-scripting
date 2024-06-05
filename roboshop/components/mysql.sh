@@ -41,7 +41,7 @@ stat $?
 
 echo -n "Load schema"
 cd /tmp
-unzip mysql.zip
+unzip mysql.zip &>> /tmp/$COMPONENT.log
 cd mysql-main
-mysql -u root -pRoboShop@1 <shipping.sql
+mysql -u root -pRoboShop@1 <shipping.sql &>> /tmp/$COMPONENT.log
 stat $?
