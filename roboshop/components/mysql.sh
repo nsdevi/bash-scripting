@@ -37,10 +37,10 @@ fi
 
 echo -n "Downloading the schema"
 cd /tmp
-curl -s -L -o /tmp/mysql.zip "https://github.com/stans-robot-project/mysql/archive/main.zip"  &>> /tmp/$COMPONENT.log && unzip -o mysql.zip &>> /tmp/$COMPONENT.log
+curl -s -L -o /tmp/mysql.zip "https://github.com/stans-robot-project/mysql/archive/main.zip"  &>> /tmp/$COMPONENT.log && unzip -o /tmp/mysql.zip &>> /tmp/$COMPONENT.log
 stat $?
 
 echo -n "injecting schema"
-cd mysql-main
+cd /tmp/mysql-main/
 mysql -u root -pRoboShop@1 <shipping.sql &>> /tmp/$COMPONENT.log
 stat $?
