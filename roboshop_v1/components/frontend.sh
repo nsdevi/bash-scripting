@@ -1,3 +1,3 @@
 #!/bin/bash
 #source components/common.sh
-I'm installing frontend
+echo I'm installing frontend
