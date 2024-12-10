@@ -3,10 +3,10 @@ set -e #it ensure that script will stop if any instruction fails
 
 ## source is the command to import the file
 source components/common.sh
-echo -n "modification in yum.repos.d file"
-sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
-sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
-stat $?
+# echo -n "modification in yum.repos.d file"
+# sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+# sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+# stat $?
 
 echo -n "Installing Nginx:"
 yum install nginx -y >> /tmp/frontend.log
